@@ -1,12 +1,26 @@
-function startGame(){
+// The below code gives us a random num between 1-6
+var randomNumber1 = Math.floor(Math.random() *6) +1;
 
-    var diceOne = random(6, 1);
-    var diceTwo = random(6, 1);
+// The bellow allows me to select a random dice image(using DOM)
+var RandomDiceImage = "dice" + randomNumber1 + ".png";
 
-    changeImage('img1', diceOne);
-    changeImage('img2', diceTwo);
+var RandomImageSource = "images/" + RandomDiceImage;
 
-// I need to create an if statement for the dice to change (if,elseif & else)
+var image1 = document.querySelectorAll("img")[0];
+image1.setAttribute("src", RandomImageSource);
 
+//Dice 2 
+var randomNumber2 = Math.floor(Math.random() * 6) +1;
+var RandomImageSource2 = "images/dice" + randomNumber2 + ".png";
+document.querySelectorAll("img")[1].setAttribute("src",RandomImageSource2);
 
+// Determine Winner
+if (randomNumber1 > randomNumber2){
+    document.querySelector("h1").innerHTML = "Player 1 Wins";
+}
+else if(randomNumber2 > randomNumber1){
+    document.querySelector("h1").innerHTML = "Player 2 Wins";
+}
+else{
+    document.querySelector("h1").innerHTML= "Tie!"
 }
